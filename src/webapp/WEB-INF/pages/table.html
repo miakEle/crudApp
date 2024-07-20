@@ -2,34 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 
-<html lang="en">
+<html lang="rus">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">userId</th>
-        <th scope="col">name</th>
-        <th scope="col">surname</th>
-        <th scope="col" colspan="2">operations</th>
+        <th scope="col">UserId</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col" colspan="2">Operations</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr scope="row" th:each="user : ${table}">
+    <tr scope="row" th:each="user : ${allUsers}">
         <td th:text="${user.userId}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.surname}"></td>
         <td>
-            <a class="btn btn-primary" role="button" th:href="@{'/edit?id=' + ${user.userId}}">EDIT</a>
+            <a class="btn btn-success" role="button" th:href="@{'/edit?id=' + ${user.userId}}">EDIT</a>
         </td>
         <td>
             <form method="POST" th:action="@{/delete(id=${user.userId})}">
-                <button type="submit" class="btn btn-primary">DELETE</button>
+                <input type="submit" class="btn btn-danger" value="DELETE"/>
             </form>
         </td>
         </td>
@@ -38,6 +38,7 @@
 </table>
 
 <input type="button" class="btn btn-primary" value="ADD" onclick="window.location.href='new'">
+<button class="btn btn-primary" onclick="window.location.href='new'">ADD</button>
 
 </body>
 </html>

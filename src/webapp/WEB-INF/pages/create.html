@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-
-<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">
+<html lang="rus">
 <head>
     <meta charset="UTF-8">
     <title>New User</title>
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form class="mb-3" th:method="POST" th:action="@{/new}" th:object="${user}">
+<form class="mb-3" th:method="POST" th:action="@{/new}" th:object="${newUser}">
     <label for="name">Enter name</label>
     <input class="form-control" type="text" th:field="*{name}" id="name" required/>
     <br/>
